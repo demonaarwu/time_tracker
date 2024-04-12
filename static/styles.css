@@ -1,0 +1,49 @@
+.btn {
+  margin: 5px;
+}
+
+#time-tracker {
+  background-color: white;
+  color: black;
+  border: solid black;
+  border-radius: 20px;
+  font-size: 24px;
+}
+
+.time-tracker-name {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.navbar-custom {
+  background-color: white;
+}
+
+body {
+  font-family: "Courier New", "Monaco";
+}
+
+.label {
+  background-color: white;
+  color: black;
+  border: solid black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.label:hover {
+    background-color: black;
+    color: white;
+    border: solid black;
+}
+
+.navbar-toggler {
+  border-style: none;
+}
+
+.navbar-toggler:active,
+.navbar-toggler:focus,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+}
