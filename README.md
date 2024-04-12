@@ -2,7 +2,7 @@
 
 <img src="./clock.png" title="" alt="" width="311">
 
-#### Video Demo: ![https://www.youtube.com/watch?v=FcsZDTlEPo8](https://www.youtube.com/watch?v=FcsZDTlEPo8)
+#### Video Demo: [https://www.youtube.com/watch?v=FcsZDTlEPo8](https://www.youtube.com/watch?v=FcsZDTlEPo8)
 
 #### Description
 
