@@ -1,6 +1,6 @@
 # YANTT: Yet another time tracker
 
-<img src="\\wsl.localhost\Ubuntu\root\time_tracker\clock.png" title="" alt="" width="311">
+<img src="./clock.png" title="" alt="" width="311">
 
 #### Video Demo: ![https://www.youtube.com/watch?v=FcsZDTlEPo8](https://www.youtube.com/watch?v=FcsZDTlEPo8)
 
