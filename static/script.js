@@ -8,6 +8,7 @@ import {
 
 async function main() {
   const tracker_exist = await check_tracker_exist();
+    console.log(tracker_exist);
 
   if (!tracker_exist) {
     display_labels().then(init);

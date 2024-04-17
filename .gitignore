@@ -1,4 +1,4 @@
-flask_session/
-__pycache__
 tracker.db
+flask_session/
+__pycache__/
 

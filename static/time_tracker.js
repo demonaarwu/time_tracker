@@ -16,10 +16,9 @@ class TimeTracker {
   }
 }
 
-function create_time_tracker(label_name) {
+function create_time_tracker(label_name, unix_time=new Date().getTime()) {
     let display_area = document.querySelector(".labels");
-    let now = Date.now();
-  const tracker = new TimeTracker(label_name, now);
+  const tracker = new TimeTracker(label_name, unix_time);
 
   add_tracker(tracker);
   clean_display_area();
@@ -76,12 +75,8 @@ async function get_tracker() {
   } else {
     const json = await response.json();
 
-    const unix_time_then = json["unix_time"];
-    let unix_time_now = Date().now();
-    let time = Math.round((unix_time_now - unix_time_then) / 1000);
-
     let tracker = new TimeTracker();
-    tracker.time = time;
+    tracker.time = json["unix_time"];
     tracker.name = json["label_name"];
 
     return tracker;
@@ -93,7 +88,7 @@ function add_tracker(tracker) {
     method: "POST",
     body: JSON.stringify({
       label_name: tracker.name,
-      unix_time: Date.now(),
+      unix_time: new Date().getTime(),
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
