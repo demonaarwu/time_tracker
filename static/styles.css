@@ -1,5 +1,16 @@
+@font-face {
+    font-family: 'GenRyuMin';
+    src: url('/static/genryumintw.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'victormono';
+    src: url('/static/VictorMonoNerdFont-Medium.woff') format('woff');
+}
+
 .btn {
   margin: 5px;
+  font-size: 16px;
 }
 
 #time-tracker {
@@ -15,12 +26,10 @@
   margin-bottom: 10px;
 }
 
-.navbar-custom {
-  background-color: white;
-}
-
 body {
-  font-family: "Courier New", "Monaco";
+  background-color: #F9F7F7;
+  color: #112D4E;
+  font-family: 'GenRyuMin';
 }
 
 .label {
@@ -29,6 +38,10 @@ body {
   border: solid black;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+h2 {
+    font-family: 'GenRyuMin';
 }
 
 .label:hover {
