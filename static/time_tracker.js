@@ -20,7 +20,7 @@ function create_time_tracker(label_name, unix_time=new Date().getTime()) {
     let display_area = document.querySelector(".labels");
   const tracker = new TimeTracker(label_name, unix_time);
 
-  add_tracker(tracker);
+  add_tracker(tracker).then(() => {
   clean_display_area();
   display_area.innerHTML = '<div class="container" id="time-tracker"></div>';
 
@@ -37,6 +37,8 @@ function create_time_tracker(label_name, unix_time=new Date().getTime()) {
     display_labels(get_labels()).then(() => {
       init();
     });
+  });
+
   });
 }
 
@@ -83,7 +85,7 @@ async function get_tracker() {
   }
 }
 
-function add_tracker(tracker) {
+async function add_tracker(tracker) {
   fetch("http://127.0.0.1:5000/time_tracker", {
     method: "POST",
     body: JSON.stringify({

@@ -47,4 +47,3 @@ def get_user_id(username: str) -> str:
     user_id = cursor.execute("SELECT id FROM users WHERE username = ?", [username]).fetchall()[0][0]
     db.close()
     return user_id
-

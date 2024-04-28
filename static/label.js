@@ -73,9 +73,7 @@ function init_add_label() {
     if (label_name != null) {
       create_label(label_name).then(() => {
         display_labels(get_labels()).then(() => {
-          init_labels();
-          init_add_label();
-          init_delete_label();
+	    init();
         });
       });
     }
@@ -91,9 +89,7 @@ function init_delete_label() {
     if (label_name != null) {
       delete_label(label_name).then(() => {
         display_labels(get_labels()).then(() => {
-          init_labels();
-          init_add_label();
-          init_delete_label();
+	    init();
         });
       });
     }

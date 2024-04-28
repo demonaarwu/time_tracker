@@ -1,8 +1,8 @@
 from flask import Flask, redirect, render_template, request, session, jsonify
-from helpers import login_required
-from label import get_labels, add_label, is_label_exist, delete_label
-from user import is_username_exist, check_password, add_user, get_user_id
-from history import create_history, get_todays_record, get_last_weeks_record, get_overall_record
+from apis.helpers import login_required
+from apis.label import get_labels, add_label, is_label_exist, delete_label
+from apis.user import is_username_exist, check_password, add_user, get_user_id
+from apis.history import create_history, get_todays_record, get_last_weeks_record, get_overall_record
 from flask_session import Session
 
 app = Flask(__name__)

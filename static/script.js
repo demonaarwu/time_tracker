@@ -14,8 +14,8 @@ async function main() {
     display_labels().then(init);
   } else {
     const tracker = await get_tracker();
-    create_time_tracker(tracker.name);
+    create_time_tracker(tracker.name, tracker.time);
   }
 }
 
-main();
+window.onload = main;
