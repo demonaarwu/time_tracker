@@ -90,7 +90,7 @@ async function add_tracker(tracker) {
     method: "POST",
     body: JSON.stringify({
       label_name: tracker.name,
-      unix_time: new Date().getTime(),
+      unix_time: tracker.time,
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",

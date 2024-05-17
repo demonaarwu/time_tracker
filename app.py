@@ -120,6 +120,7 @@ def check_tracker():
         session["unix_time"] = json["unix_time"]
 
         return redirect("/")
+
 @app.route("/stats", methods=["GET"])
 def stats():
     return render_template("stats.html")
