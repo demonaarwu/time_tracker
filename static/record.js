@@ -1,3 +1,5 @@
+import { display_time_format } from './time_format.js';
+
 async function get_records()
 {
   const response = await fetch("http://127.0.0.1:5000/records");
@@ -35,13 +37,13 @@ function display_record(record, record_type)
 
     for (var label of Object.keys(record))
     {
-	display_area.innerHTML += '<p>' + label + ': ' + record[label] + 's</p>';
+	display_area.innerHTML += '<p>' + label + ': ' + display_time_format(record[label]) + '</p>';
     }
 }
 
 async function main()
 {
-    records = await get_records();
+    let records = await get_records();
     display_records(records);
 }
 
