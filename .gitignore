@@ -1,4 +1,4 @@
 tracker.db
 flask_session/
 __pycache__/
-
+env/
