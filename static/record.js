@@ -12,42 +12,31 @@ async function get_records()
 
 function display_records(records)
 {
-    display_todays_record(records["todays_record"]);
-    display_last_weeks_record(records["last_weeks_record"]);
-    display_overall_record(records["overall_record"]);
+    display_record(records["todays_record"], "today");
+    display_record(records["last_weeks_record"], "week");
+    display_record(records["overall_record"], "all");
 }
 
-function display_todays_record(todays_record)
+function display_record(record, record_type)
 {
-    let today_area = document.querySelector(".today");
+    let display_area;
 
-    for (var label of Object.keys(todays_record))
+    switch (record_type)
     {
-	today_area.innerHTML += '<p>' + label + ': ' + todays_record[label] + ' s</p>';
-    }
-}
-
-function display_last_weeks_record(last_weeks_record)
-{
-    let week_area = document.querySelector(".week");
-
-    for (var label of Object.keys(last_weeks_record))
-    {
-	week_area.innerHTML += '<p>' + label + ': ' + last_weeks_record[label] + ' s</p>';
+	case "today":
+	    display_area = document.querySelector(".today");
+	    break;
+	case "week":
+	    display_area = document.querySelector(".week");
+	    break;
+	default:
+	    display_area = document.querySelector(".all");
     }
 
-}
-
-function display_overall_record(overall_record)
-{
-    let overall_area = document.querySelector(".all");
-
-    for (var label of Object.keys(overall_record))
+    for (var label of Object.keys(record))
     {
-	overall_area.innerHTML += '<p>' + label + ': ' + overall_record[label] + ' s</p>';
+	display_area.innerHTML += '<p>' + label + ': ' + record[label] + 's</p>';
     }
-
-
 }
 
 async function main()
