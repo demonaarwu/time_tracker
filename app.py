@@ -1,5 +1,6 @@
 from flask import Flask, redirect, render_template, request, session, jsonify
 from apis.helpers import login_required
+from apis.tracker import is_tracker_exist, create_tracker, delete_tracker, get_tracker
 from apis.label import get_labels, add_label, is_label_exist, delete_label
 from apis.user import is_username_exist, check_password, add_user, get_user_id
 from apis.history import create_history, get_todays_record, get_last_weeks_record, get_overall_record
@@ -98,26 +99,32 @@ def delete():
 def history():
     label_name = request.get_json()["label_name"]
     time = request.get_json()["time"]
+    user_id = session["user_id"]
 
-    create_history(label_name=label_name, time=time, user_id=session["user_id"])
+    create_history(label_name=label_name, time=time, user_id=user_id)
 
-    session["label_name"] = ''
+    delete_tracker(user_id=user_id)
 
     return redirect("/")
 
 @app.route("/time_tracker", methods=["POST", "GET"])
 @login_required
-def check_tracker():
+def tracker():
     if request.method == 'GET':
-        if session["label_name"] != '':
-            return jsonify({"status": "true",  "label_name": session["label_name"], "unix_time": session["unix_time"]})
+        if is_tracker_exist(user_id=session["user_id"]):
+            tracker = get_tracker(user_id=session["user_id"])
+
+            return jsonify({"status": "true",  "label_name": tracker["label_name"], "unix_time": tracker["unix_time"]})
         else:
             return jsonify({"status": "false"})
     else:
         json = request.get_json()
 
-        session["label_name"] = json["label_name"]
-        session["unix_time"] = json["unix_time"]
+        user_id = session["user_id"]
+        label_name = json["label_name"]
+        unix_time = json["unix_time"]
+
+        create_tracker(user_id=user_id, label_name=label_name, unix_time=unix_time)
 
         return redirect("/")
 
