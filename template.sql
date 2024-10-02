@@ -13,3 +13,8 @@ CREATE TABLE history(
   time INTEGER NOT NULL,
   date TEXT NOT NULL
 );
+CREATE TABLE trackers(
+  user_id INTEGER NOT NULL,
+  label_name TEXT NOT NULL,
+  unix_time INTEGER NOT NULL,
+);
