@@ -23,6 +23,7 @@ def create_label(name):
     add_label(user_id=session["user_id"], label_name=name)
     return redirect("/")
 
+
 @app.route("/login", methods=["POST", "GET"])
 def login():
     # Forget any user_id

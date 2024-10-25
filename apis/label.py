@@ -34,7 +34,7 @@ def delete_label(label_name: str, user_id: str) -> None:
     db.close()
    
 
-def is_label_exist(label_name: str, user_id: str) -> None:
+def is_label_exist(label_name: str, user_id: str) -> bool:
     db = sqlite3.connect("./tracker.db", check_same_thread=False)
     cursor = db.cursor()
 
